@@ -1,0 +1,139 @@
+:root {
+    --rose: #ff2d81;
+    --gold: #ffd700;
+    --dark: #050208;
+    --glass: rgba(255, 255, 255, 0.08);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; cursor: none; }
+body { background: var(--dark); color: #fff; font-family: 'Poppins', sans-serif; overflow-x: hidden; width: 100%; }
+body.locked { overflow: hidden; height: 100vh; }
+
+/* Fondo y Estrellas */
+#nebula { position: fixed; inset: 0; background: radial-gradient(circle at 20% 30%, #2b0040 0%, transparent 40%), radial-gradient(circle at 80% 70%, #001a33 0%, transparent 40%); filter: blur(80px); z-index: -2; opacity: 0.6; }
+#stars { position: fixed; inset: 0; z-index: -1; }
+#cursor-follower { width: 12px; height: 12px; background: #fff; border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000; box-shadow: 0 0 15px var(--rose); transition: transform 0.1s ease-out; }
+
+/* Intro */
+#intro { position: fixed; inset: 0; background: #000; z-index: 9999; display: flex; justify-content: center; align-items: center; transition: 1s; padding: 20px; text-align: center; }
+.main-glow { font-size: clamp(3rem, 15vw, 8rem); text-shadow: 0 0 30px var(--rose); font-family: 'Sacramento', cursive; }
+.btn-glow { background: var(--rose); color: white; border: none; padding: 15px 40px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 0 20px var(--rose); margin-top: 20px; font-size: 1rem; }
+
+/* Secciones */
+section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 80px 20px; width: 100%; }
+.reveal { opacity: 0; transform: translateY(40px); transition: 1s; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* Hero */
+.glass-hero { background: var(--glass); backdrop-filter: blur(20px); padding: 40px 20px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1); text-align: center; width: 100%; max-width: 600px; }
+.name-neon { font-family: 'Sacramento', cursive; font-size: clamp(3.5rem, 12vw, 7rem); text-shadow: 0 0 20px var(--rose); }
+
+/* Vela */
+.candle-container { margin: 20px 0; }
+.candle-wrap { cursor: pointer; display: inline-block; }
+.flame { width: 18px; height: 30px; background: orange; border-radius: 50% 50% 20% 20%; margin: 0 auto; box-shadow: 0 0 20px orange; animation: moveFlame 0.1s infinite alternate; }
+.candle-base { background: #fff; color: var(--rose); padding: 10px 20px; border-radius: 5px; font-weight: bold; }
+
+.counter-grid { display: flex; gap: 20px; justify-content: center; margin-top: 20px; }
+.counter-item span { font-size: 1.5rem; font-weight: bold; color: var(--gold); display: block; }
+
+/* --- ACORDEÓN RESPONSIVO --- */
+.accordion-container {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    height: 450px;
+    gap: 8px;
+    margin: 20px auto;
+}
+
+.accordion-item {
+    flex: 1;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.2, 1);
+    border: 2px solid var(--glass);
+    overflow: hidden;
+}
+
+.accordion-item:hover, .accordion-item.active {
+    flex: 5;
+    border-color: var(--rose);
+    box-shadow: 0 10px 30px rgba(255, 45, 129, 0.4);
+}
+
+.accordion-item .content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 15px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 0.5s;
+    white-space: nowrap;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.accordion-item:hover .content, .accordion-item.active .content {
+    opacity: 1;
+}
+
+/* --- RAZONES Y CARTA --- */
+.gold-title { font-family: 'Sacramento', cursive; font-size: clamp(2.5rem, 8vw, 4rem); color: var(--gold); margin-bottom: 30px; text-align: center; }
+.reasons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; width: 100%; max-width: 1000px; }
+.reason-tile { background: var(--glass); padding: 15px; border-radius: 12px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1); text-align: center; }
+
+.scroll-letter { background: #fff; color: #333; padding: 30px 20px; border-radius: 5px; width: 100%; max-width: 500px; box-shadow: 10px 10px 0 var(--rose); transform: rotate(-1deg); }
+.cursive { font-family: 'Sacramento', cursive; font-size: clamp(2rem, 6vw, 2.5rem); color: var(--rose); }
+
+/* BOTÓN FINAL */
+.btn-mega {
+    position: relative; padding: 20px 40px; font-size: clamp(0.9rem, 4vw, 1.3rem); font-weight: 700;
+    color: #fff; background: linear-gradient(45deg, #ff2d81, #ff71b6);
+    border: none; border-radius: 100px; cursor: pointer;
+    animation: heartbeat 1.5s infinite; box-shadow: 0 0 30px rgba(255, 45, 129, 0.5);
+    text-transform: uppercase; width: 90%; max-width: 400px;
+}
+
+/* Música Waves */
+#music-control { position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: var(--rose); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.music-waves span { width: 3px; height: 15px; background: #fff; margin: 0 2px; animation: wave 1s infinite alternate; }
+
+@keyframes wave { to { height: 5px; } }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes moveFlame { to { transform: scale(1.1) rotate(5deg); } }
+
+/* MEDIA QUERIES PARA MÓVIL */
+@media (max-width: 768px) {
+    * { cursor: auto; }
+    #cursor-follower { display: none; }
+    
+    section { padding: 40px 15px; }
+    
+    .accordion-container {
+        height: 380px;
+        flex-direction: row; /* Mantener horizontal o cambiar a columna si prefieres */
+        gap: 5px;
+    }
+    
+    .accordion-item:hover, .accordion-item.active {
+        flex: 8;
+    }
+
+    .reasons-grid {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en móvil */
+    }
+
+    .counter-grid {
+        flex-direction: row;
+        gap: 15px;
+    }
+}

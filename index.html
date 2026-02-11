@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olenka ✨ 25 Años de Perfección</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+    <div id="cursor-follower"></div>
+    <div id="nebula"></div>
+    <canvas id="stars"></canvas>
+
+    <div id="intro">
+        <div class="intro-box">
+            <span class="sparkle-text">Un cuarto de siglo después...</span>
+            <h1 class="main-glow">Olenka</h1>
+            <div class="loading-bar"><div class="fill"></div></div>
+            <button class="btn-glow" onclick="startExperience()">DESCUBRIR EL UNIVERSO ✨</button>
+        </div>
+    </div>
+
+    <div id="music-control" onclick="toggleMusic()">
+        <div class="music-waves"><span id="w1"></span><span id="w2"></span><span id="w3"></span></div>
+        <audio id="bg-music" loop><source src="img/Rocko_Blasty_-_Besitos_de_Colores_Instrumental.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <section id="portada">
+        <div class="glass-hero">
+            <h2 class="pre-title">Celebrando a una Reina</h2>
+            <h1 class="name-neon">Olenka</h1>
+            
+            <div class="candle-container">
+                <div class="candle-wrap" id="candle-interactive" onclick="pedirDeseo()">
+                    <div class="flame"></div>
+                    <div class="candle-base">25</div>
+                </div>
+                <p class="wish-text" id="wish-msg">Toca la llama para pedir un deseo</p>
+            </div>
+
+            <div class="counter-grid">
+                <div class="counter-item"><span id="days">9131</span><small>Días de luz</small></div>
+                <div class="counter-item"><span id="hours">219K</span><small>Horas de magia</small></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <h2 class="gold-title">Tus Momentos ✨</h2>
+        <div class="accordion-container">
+            <div class="accordion-item active" style="background-image: url('img/fondo.jpeg');">
+                <div class="content"><span>Tu Sonrisa</span></div>
+            </div>
+            <div class="accordion-item" style="background-image: url('img/carita.jpeg');">
+                <div class="content"><span>Tu Calma</span></div>
+            </div>
+            <div class="accordion-item" style="background-image: url('img/granja azul.jpeg');">
+                <div class="content"><span>Tu Magia</span></div>
+            </div>
+            <div class="accordion-item" style="background-image: url('img/kiss me.jpeg');">
+                <div class="content"><span>Nuestro Amor</span></div>
+            </div>
+            <div class="accordion-item" style="background-image: url('img/regia.jpeg');">
+                <div class="content"><span>Tu Brillo</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal reasons-section">
+        <h2 class="gold-title">25 Destellos de Ti</h2>
+        <div class="reasons-grid" id="reasons-container"></div>
+    </section>
+
+    <section class="reveal">
+        <div class="scroll-letter">
+            <div class="letter-content">
+                <h3 class="cursive">Mi Amada Olenka,</h3>
+                <p>Llegar a los 25 años es un hito, pero hacerlo con tu gracia, tu fuerza y tu bondad es simplemente admirable.</p>
+                <p>Eres la mezcla perfecta de calma y fuego. Gracias por elegirme para caminar a tu lado.</p>
+                <p class="signature">Tuyo por siempre.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="final" class="reveal">
+        <div class="final-card">
+            <h2>¿Lista para conquistar el mundo?</h2>
+            <button id="btn-final-epic" class="btn-mega" onclick="megaCelebracion(event)">
+                ¡FELIZ CUMPLEAÑOS OLENKA! 💖
+            </button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
